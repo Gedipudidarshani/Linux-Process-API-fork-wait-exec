@@ -46,19 +46,11 @@ int main(void)
 
 ```
 ## OUTPUT
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
+localhost:~# ./a.out
+The process id: 97
+The process id of parent function: 61
+```
 
 ## C Program to create new process using Linux API system calls fork() and exit()
 
@@ -87,34 +79,42 @@ Iam child my pid is 109
 My parent pid is:108
 ```
 ## C Program to execute Linux system commands using Linux API system calls exec() family
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
+#include <stdlib.h>
+#include <sys/wait.h>
+#include <sys/types.h>
+int main()
+{       int status;
+        printf("Running ps with execlp\n");
+        execl("ps", "ps", "ax", NULL);
+        wait(&status);
+        if (WIFEXITED(status))
+                printf("child exited with status of %d\n", WEXITSTATUS(status));
+        else
+                puts("child did not exit successfully\n");
+        printf("Done.\n");
+printf("Running ps with execlp. Now with path specified\n");
+        execl("/bin/ps", "ps", "ax", NULL);
+        wait(&status);
+        if (WIFEXITED(status))
+                printf("child exited with status of %d\n", WEXITSTATUS(status));
+        else
+                puts("child did not exit successfully\n");
+        printf("Done.\n");
+        exit(0);}
+```
 
 ## OUTPUT
+```
+localhost:~# ./a.out
+Running ps with execlp
+child exited with status of 0
+Done.
+Running ps with execlp. Now with path specified
+```
 
+## RESULT
+The programs are executed successfully.
 
 
 
