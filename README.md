@@ -112,25 +112,5 @@ child exited with status of 0
 Done.
 Running ps with execlp. Now with path specified
 ```
-
-## RESULT
-The programs are executed successfully.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# RESULT:
+## RESULT:
 The programs are executed successfully.
